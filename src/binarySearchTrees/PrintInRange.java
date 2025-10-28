@@ -24,7 +24,7 @@ public class PrintInRange {
             printInRange(root.right, k1, k2);
         }
         else{
-            printInRange(root.right, k1, k2);
+            printInRange(root.left, k1, k2);
         }
     }
     public static void main(String[] args) {
