@@ -7,7 +7,7 @@ public class SlidingWindow {
 
         public Pair(int val,int idx){
             this.val = val;
-            this.idx = val;
+            this.idx = idx;
         }
 
         @Override
