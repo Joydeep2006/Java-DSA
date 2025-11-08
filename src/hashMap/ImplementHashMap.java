@@ -59,7 +59,7 @@ public class ImplementHashMap {
             for(int i=0;i<oldBucket.length;i++){
                 LinkedList<Node> ll = oldBucket[i];
                 for(int j=0;j<ll.size();j++){
-                    Node node = ll.remove();
+                    Node node = ll.get();
                     this.put(node.key,node.value);
                 }
             }
