@@ -50,16 +50,25 @@ public class AdjacencyListDFS {
         graph[6].add(new Edge(6, 5, 1));
 
     }
+    // to traverse all the connected components
+    public static void dfs(ArrayList<Edge>[] graph){
+        boolean visit[] = new boolean[graph.length];
+        for(int i=0;i<graph.length;i++){
+            if(!visit[i]){
+                dfsUtil(graph,i,visit);
+            }
+        }
 
+    }
     // DFS traversal
-    public static void dfs(ArrayList<Edge>[] graph,int curr,boolean visit[]){ // O(V+E)
+    public static void dfsUtil(ArrayList<Edge>[] graph,int curr,boolean visit[]){ // O(V+E)
         System.out.print(curr + " ");
         visit[curr] = true;
 
         for(int i=0;i<graph[curr].size();i++){
             Edge e = graph[curr].get(i);
             if(!visit[e.dest]){
-                dfs(graph,e.dest,visit);
+                dfsUtil(graph,e.dest,visit);
             }
         }
     }
@@ -72,10 +81,9 @@ public class AdjacencyListDFS {
         // to create a graph to traverse
         createGraph(graph);
         // set visit for all vertices to false at start
-        boolean visit[] = new boolean[V];
-        for(int i=0;i<V;i++){
-            visit[i] = false;
-        }
-        dfs(graph,0,visit);     
+        dfs(graph);
+
+
+        
     }
 }
