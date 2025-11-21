@@ -51,12 +51,19 @@ public class AdjacencyListBFS {
         graph[6].add(new Edge(6, 5, 1));
 
     }
-    // to print the BFS traversal 
-    public static void bfs(ArrayList<Edge> graph[]){ // O(V+E)
-        Queue<Integer> q = new LinkedList<>();
+    // also can traverse the connected components of the graph
+    public static void bfs(ArrayList<Edge> graph[]){
         boolean[] visit = new boolean[graph.length];
+        for(int i=0;i<graph.length;i++){
+            if(!visit[i]){
+                bfsUtil(graph,visit);
+            }
+        }
+    }
+    // util functiom to travse all the connected vertices
+    public static void bfsUtil(ArrayList<Edge> graph[],boolean[] visit){ // O(V+E)
+        Queue<Integer> q = new LinkedList<>();
         q.add(0); // source vertex
-
         while(!q.isEmpty()){
             int curr = q.remove();
             if(!visit[curr]){
