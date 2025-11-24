@@ -1,3 +1,4 @@
+import java.util.*;
 public class CycleDetectionDirected {
     public static class Edge{
         int src;
